@@ -20,12 +20,12 @@ router.get('/', async(req, res)=>{
     
 })
 
-//New Authors
+//New Authors Route
 router.get('/new', (req, res)=>{
     res.render('authors/new', {author: new Author() })
 })
 
-//Create authors
+//Create authors Route
 router.post('/', async(req, res)=>{
     const author = new Author({
         name: req.body.name
@@ -43,19 +43,6 @@ router.post('/', async(req, res)=>{
             })
     }
 
-    // author.save((err, newAuthor)=>{
-    //     if(err){
-    //         let locals = {errorMessage: 'Error creating'}
-    //         res.render('authors/new',{
-    //             author: author,
-    //             locals: locals
-    //         })
-    //     } else{
-    //         //res.redirect(`authors/${newAuthor.id}`)
-    //         res.redirect(`authors`)
-    //     }
-    // })
-    // //res.send(req.body.name)
 })
 
 module.exports = router
